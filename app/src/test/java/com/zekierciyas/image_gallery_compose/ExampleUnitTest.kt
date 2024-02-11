@@ -1,4 +1,4 @@
-package com.zekierciyas.image_gallery_comose
+package com.zekierciyas.image_gallery_compose
 
 import org.junit.Test
 

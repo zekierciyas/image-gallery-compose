@@ -1,4 +1,4 @@
-package com.zekierciyas.image_gallery_comose.ui.theme
+package com.zekierciyas.image_gallery_compose.ui.theme
 
 import android.app.Activity
 import android.os.Build
@@ -38,7 +38,7 @@ private val LightColorScheme = lightColorScheme(
 )
 
 @Composable
-fun ImagegallerycomoseTheme(
+fun ImagegallerycomposeTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     // Dynamic color is available on Android 12+
     dynamicColor: Boolean = true,

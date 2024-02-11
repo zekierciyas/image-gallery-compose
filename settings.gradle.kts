@@ -13,5 +13,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "image-gallery-comose"
+rootProject.name = "image-gallery-compose"
 include(":app")

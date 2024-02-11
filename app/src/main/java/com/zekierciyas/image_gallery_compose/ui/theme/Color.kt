@@ -1,4 +1,4 @@
-package com.zekierciyas.image_gallery_comose.ui.theme
+package com.zekierciyas.image_gallery_compose.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

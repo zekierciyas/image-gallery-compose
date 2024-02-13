@@ -83,4 +83,5 @@ dependencies {
     implementation("androidx.paging:paging-compose:3.2.1")
     implementation("com.google.code.gson:gson:2.10.1")
     implementation("androidx.core:core-splashscreen:1.0.1")
+    implementation ("io.coil-kt:coil-compose:2.2.2")
 }

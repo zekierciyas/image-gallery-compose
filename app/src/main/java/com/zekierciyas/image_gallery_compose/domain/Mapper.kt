@@ -11,7 +11,8 @@ object Mapper {
                 ImageUIModel(
                     base64 = it?.base64,
                     description = it?.description,
-                    title = it?.title
+                    title = it?.title,
+                    id = it?.id.toString()
                 )
             )
         }
@@ -22,7 +23,8 @@ object Mapper {
         return ImageUIModel(
             base64 = this?.base64,
             description = this?.description,
-            title = this?.title
+            title = this?.title,
+            id = this?.id.toString()
         )
     }
 }

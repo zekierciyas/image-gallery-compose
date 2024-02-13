@@ -8,5 +8,7 @@ data class ImageUIModel(
     @SerializedName("description")
     val description: String?,
     @SerializedName("title")
-    val title: String?
+    val title: String?,
+    @SerializedName("id")
+    val id: String?
 )

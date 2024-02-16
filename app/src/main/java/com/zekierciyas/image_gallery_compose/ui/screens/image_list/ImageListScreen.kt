@@ -1,4 +1,4 @@
-package com.zekierciyas.image_gallery_compose.ui.screens.screen1
+package com.zekierciyas.image_gallery_compose.ui.screens.image_list
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.animateContentSize
@@ -31,14 +31,18 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.em
 import androidx.compose.ui.unit.sp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import com.zekierciyas.image_gallery_compose.R
-import com.zekierciyas.image_gallery_compose.domain.ImageUIModel
+import com.zekierciyas.image_gallery_compose.domain.model.ImageUIModel
 import com.zekierciyas.image_gallery_compose.ui.component.ImageSearchBar
 import com.zekierciyas.image_gallery_compose.util.DataState
 
 @Composable
-fun ImageListScreen(navController: NavHostController, viewModel: ImageListViewModel) {
+fun ImageListScreen(
+    navController: NavHostController,
+    viewModel: ImageListViewModel = hiltViewModel()
+) {
     val collapseToolBar = remember { mutableStateOf(false) }
     val nestedScrollConnection = remember {
         object : NestedScrollConnection {

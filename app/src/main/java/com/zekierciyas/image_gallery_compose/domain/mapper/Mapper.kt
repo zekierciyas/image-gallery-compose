@@ -1,7 +1,8 @@
-package com.zekierciyas.image_gallery_compose.domain
+package com.zekierciyas.image_gallery_compose.domain.mapper
 
 import com.zekierciyas.image_gallery_compose.data.model.ImageListResponse
 import com.zekierciyas.image_gallery_compose.data.model.ImageResponse
+import com.zekierciyas.image_gallery_compose.domain.model.ImageUIModel
 
 object Mapper {
     fun ImageListResponse?.asUIModel(): List<ImageUIModel> {

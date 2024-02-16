@@ -1,4 +1,4 @@
-package com.zekierciyas.image_gallery_compose.data
+package com.zekierciyas.image_gallery_compose.data.api
 
 import com.zekierciyas.image_gallery_compose.data.model.ImageResponse
 import com.zekierciyas.image_gallery_compose.data.model.ImageListResponse

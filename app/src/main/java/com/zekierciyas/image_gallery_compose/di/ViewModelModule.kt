@@ -1,20 +1,20 @@
 package com.zekierciyas.image_gallery_compose.di
 
 import com.zekierciyas.image_gallery_compose.data.repository.ImageRepositoryImp
-import com.zekierciyas.image_gallery_compose.domain.GetImageByIDUseCase
-import com.zekierciyas.image_gallery_compose.domain.GetImagesUseCase
+import com.zekierciyas.image_gallery_compose.domain.usecase.GetImageByIDUseCase
+import com.zekierciyas.image_gallery_compose.domain.usecase.GetImagesUseCase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.components.SingletonComponent
-import javax.inject.Singleton
+import dagger.hilt.android.components.ViewModelComponent
+import dagger.hilt.android.scopes.ViewModelScoped
 
 @Module
-@InstallIn(SingletonComponent::class)
-object AppModule {
+@InstallIn(ViewModelComponent::class)
+object ViewModelModule {
 
-    @Singleton
     @Provides
+    @ViewModelScoped
     fun provideGetImagesUseCase(
         repository: ImageRepositoryImp
     ): GetImagesUseCase {
@@ -23,8 +23,8 @@ object AppModule {
         )
     }
 
-    @Singleton
     @Provides
+    @ViewModelScoped
     fun provideGetImageByIDUseCase(
         repository: ImageRepositoryImp
     ): GetImageByIDUseCase {
@@ -32,5 +32,4 @@ object AppModule {
             repository = repository
         )
     }
-
 }

@@ -1,4 +1,4 @@
-package com.zekierciyas.image_gallery_compose.domain
+package com.zekierciyas.image_gallery_compose.domain.model
 
 import com.google.gson.annotations.SerializedName
 

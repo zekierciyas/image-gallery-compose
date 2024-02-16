@@ -1,7 +1,7 @@
 package com.zekierciyas.image_gallery_compose.di
 
-import com.zekierciyas.image_gallery_compose.data.ApiConstants
-import com.zekierciyas.image_gallery_compose.data.ApiService
+import com.zekierciyas.image_gallery_compose.data.api.ApiConstants
+import com.zekierciyas.image_gallery_compose.data.api.ApiService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

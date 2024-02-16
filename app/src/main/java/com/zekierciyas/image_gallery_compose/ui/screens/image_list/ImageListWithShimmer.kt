@@ -1,4 +1,4 @@
-package com.zekierciyas.image_gallery_compose.ui.screens.screen1
+package com.zekierciyas.image_gallery_compose.ui.screens.image_list
 
 import androidx.compose.animation.core.animateFloat
 import androidx.compose.animation.core.infiniteRepeatable
@@ -24,15 +24,12 @@ import androidx.compose.ui.composed
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.input.nestedscroll.NestedScrollConnection
-import androidx.compose.ui.input.nestedscroll.NestedScrollSource
-import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
-import com.zekierciyas.image_gallery_compose.domain.ImageUIModel
+import com.zekierciyas.image_gallery_compose.domain.model.ImageUIModel
 import com.zekierciyas.image_gallery_compose.util.isOdd
 
 @Composable

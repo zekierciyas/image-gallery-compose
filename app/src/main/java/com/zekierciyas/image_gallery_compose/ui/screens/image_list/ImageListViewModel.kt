@@ -1,4 +1,4 @@
-package com.zekierciyas.image_gallery_compose.ui.screens.screen1
+package com.zekierciyas.image_gallery_compose.ui.screens.image_list
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
@@ -6,8 +6,8 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.zekierciyas.image_gallery_compose.domain.GetImagesUseCase
-import com.zekierciyas.image_gallery_compose.domain.ImageUIModel
+import com.zekierciyas.image_gallery_compose.domain.usecase.GetImagesUseCase
+import com.zekierciyas.image_gallery_compose.domain.model.ImageUIModel
 import com.zekierciyas.image_gallery_compose.util.DataState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.collectLatest

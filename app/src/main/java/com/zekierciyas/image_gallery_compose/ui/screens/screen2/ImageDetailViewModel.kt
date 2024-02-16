@@ -15,7 +15,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class Screen2ViewModel @Inject constructor(private val getImageByIDUseCase: GetImageByIDUseCase):
+class ImageDetailViewModel @Inject constructor(private val getImageByIDUseCase: GetImageByIDUseCase):
     ViewModel() {
 
     var state : DataState<ImageUIModel> by mutableStateOf(DataState.Loading)

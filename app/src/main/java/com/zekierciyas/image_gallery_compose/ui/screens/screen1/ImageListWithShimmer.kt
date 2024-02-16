@@ -24,6 +24,9 @@ import androidx.compose.ui.composed
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.input.nestedscroll.NestedScrollConnection
+import androidx.compose.ui.input.nestedscroll.NestedScrollSource
+import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.unit.IntSize
@@ -34,10 +37,12 @@ import com.zekierciyas.image_gallery_compose.util.isOdd
 
 @Composable
 fun StaggeredGridWithImages(
+    modifier: Modifier = Modifier,
     images: List<ImageUIModel> = listOf(),
     isLoading: Boolean = false,
     imageClicked: (String?) -> Unit = {}
 ) {
+
     if (isLoading) {
         LazyVerticalStaggeredGrid(
             columns = StaggeredGridCells.Fixed(2),
@@ -51,7 +56,7 @@ fun StaggeredGridWithImages(
                         .shimmerEffect())
                 }
             },
-            modifier = Modifier.fillMaxSize()
+            modifier = modifier.fillMaxSize()
         )
     } else {
         LazyVerticalStaggeredGrid(
@@ -73,7 +78,7 @@ fun StaggeredGridWithImages(
                     )
                 }
             },
-            modifier = Modifier.fillMaxSize()
+            modifier = modifier.fillMaxSize()
         )
     }
 }

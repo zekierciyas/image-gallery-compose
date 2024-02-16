@@ -5,28 +5,28 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.zekierciyas.image_gallery_compose.ui.screens.screen1.Screen1
-import com.zekierciyas.image_gallery_compose.ui.screens.screen1.Screen1ViewModel
-import com.zekierciyas.image_gallery_compose.ui.screens.screen2.Screen2
-import com.zekierciyas.image_gallery_compose.ui.screens.screen2.Screen2ViewModel
+import com.zekierciyas.image_gallery_compose.ui.screens.screen1.ImageListScreen
+import com.zekierciyas.image_gallery_compose.ui.screens.screen1.ImageListViewModel
+import com.zekierciyas.image_gallery_compose.ui.screens.screen2.ImageDetailScreen
+import com.zekierciyas.image_gallery_compose.ui.screens.screen2.ImageDetailViewModel
 
 @Composable
 fun NavigationGraph() {
     val navController = rememberNavController()
-    val screen1ViewModel: Screen1ViewModel = hiltViewModel()
-    val screen2ViewModel: Screen2ViewModel = hiltViewModel()
+    val imageListViewModel: ImageListViewModel = hiltViewModel()
+    val imageDetailViewModel: ImageDetailViewModel = hiltViewModel()
 
-    NavHost(navController = navController, startDestination = ScreenRoutes.SCREEN_1) {
-        composable(ScreenRoutes.SCREEN_1) {
-            Screen1(
+    NavHost(navController = navController, startDestination = ScreenRoutes.IMAGE_LIST_SCREEN) {
+        composable(ScreenRoutes.IMAGE_LIST_SCREEN) {
+            ImageListScreen(
                 navController = navController,
-                viewModel = screen1ViewModel
+                viewModel = imageListViewModel
             )
         }
-        composable(ScreenRoutes.SCREEN_2) { backStackEntry ->
-            Screen2(
+        composable(ScreenRoutes.IMAGE_DETAIL_SCREEN) { backStackEntry ->
+            ImageDetailScreen(
                 navController = navController,
-                viewModel = screen2ViewModel,
+                viewModel = imageDetailViewModel,
                 navBackStackEntry = backStackEntry
             )
         }

@@ -1,6 +1,6 @@
 package com.zekierciyas.image_gallery_compose.navigation
 
 object ScreenRoutes {
-    const val SCREEN_1 = "screen_1"
-    const val SCREEN_2 = "screen2/{id}"
+    const val IMAGE_LIST_SCREEN = "image_list_screen"
+    const val IMAGE_DETAIL_SCREEN = "image_detail_screen/{id}"
 }

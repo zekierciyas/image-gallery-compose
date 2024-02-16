@@ -1,5 +1,11 @@
 package com.zekierciyas.image_gallery_compose.ui.screens.screen1
 
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.animateContentSize
+import androidx.compose.animation.expandVertically
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.animation.shrinkVertically
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -11,8 +17,14 @@ import androidx.compose.foundation.layout.requiredHeight
 import androidx.compose.foundation.layout.requiredWidth
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.input.nestedscroll.NestedScrollConnection
+import androidx.compose.ui.input.nestedscroll.NestedScrollSource
+import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -26,26 +38,46 @@ import com.zekierciyas.image_gallery_compose.ui.component.ImageSearchBar
 import com.zekierciyas.image_gallery_compose.util.DataState
 
 @Composable
-fun Screen1(navController: NavHostController, viewModel: Screen1ViewModel) {
+fun ImageListScreen(navController: NavHostController, viewModel: ImageListViewModel) {
+    val collapseToolBar = remember { mutableStateOf(false) }
+    val nestedScrollConnection = remember {
+        object : NestedScrollConnection {
+            override fun onPreScroll(available: Offset, source: NestedScrollSource): Offset {
+                val delta = available.y
+                collapseToolBar.value = delta < 0 && !collapseToolBar.value
+                return Offset.Zero
+            }
+        }
+    }
 
     Column{
-        ExploreBar(
-            Modifier
-                .requiredHeight(100.dp)
-                .fillMaxWidth())
+       AnimatedVisibility(
+            visible = !collapseToolBar.value,
+            enter = expandVertically() + fadeIn(),
+            exit = shrinkVertically() + fadeOut(),
+            modifier = Modifier.animateContentSize()
+        ) {
+           Column {
+               ExploreBar(
+                   Modifier
+                       .requiredHeight(100.dp)
+                       .fillMaxWidth())
 
-        ImageSearchBar(onSearch = {
-
-        })
+               ImageSearchBar(onSearch = {})
+           }
+       }
 
         Spacer(modifier = Modifier.height(10.dp))
 
         when(viewModel.state) {
             is DataState.Success -> {
                 StaggeredGridWithImages(
+                    modifier = Modifier.nestedScroll(
+                        nestedScrollConnection
+                    ),
                     images = (viewModel.state as DataState.Success<List<ImageUIModel>>).data,
                     imageClicked = {
-                        navController.navigate("screen2/$it")
+                        navController.navigate("image_detail_screen/$it")
                     }
                 )
             }

@@ -1,5 +1,11 @@
 package com.zekierciyas.image_gallery_compose.ui.component
 
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.animateContentSize
+import androidx.compose.animation.expandVertically
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.animation.shrinkVertically
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -28,6 +34,7 @@ import androidx.compose.ui.unit.dp
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ImageSearchBar(onSearch: (String) -> Unit = {}) {
+
     var text by remember { mutableStateOf("") } // Query for SearchBar
     var active by remember { mutableStateOf(false) } // Active state for SearchBar
     val searchHistory = remember { mutableStateListOf("") }
@@ -73,10 +80,12 @@ fun ImageSearchBar(onSearch: (String) -> Unit = {}) {
         ) {
             searchHistory.forEach {
                 if (it.isNotEmpty()) {
-                    Row(modifier = Modifier.padding(all = 14.dp).clickable {
-                        text = it
-                        active = !active
-                    }) {
+                    Row(modifier = Modifier
+                        .padding(all = 14.dp)
+                        .clickable {
+                            text = it
+                            active = !active
+                        }) {
                         Icon(imageVector = Icons.Default.List, contentDescription = null)
                         Spacer(modifier = Modifier.width(10.dp))
                         Text(text = it)
@@ -98,7 +107,6 @@ fun ImageSearchBar(onSearch: (String) -> Unit = {}) {
             )
         }
     }
-
 }
 
 @Preview("SearchPreview")

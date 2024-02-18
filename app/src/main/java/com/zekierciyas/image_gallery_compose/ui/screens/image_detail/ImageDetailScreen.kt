@@ -21,6 +21,7 @@ import androidx.compose.material3.ShapeDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
@@ -37,6 +38,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavBackStackEntry
 import androidx.navigation.NavHostController
 import coil.compose.AsyncImage
+import com.zekierciyas.image_gallery_compose.domain.model.ImageUIModel
 import com.zekierciyas.image_gallery_compose.ui.component.ToolBar
 import com.zekierciyas.image_gallery_compose.ui.screens.image_list.shimmerEffect
 import com.zekierciyas.image_gallery_compose.util.DataState
@@ -47,10 +49,6 @@ fun ImageDetailScreen(
     navBackStackEntry: NavBackStackEntry,
     viewModel: ImageDetailViewModel = hiltViewModel()) {
 
-    LaunchedEffect(key1 = "get_detail", block = {
-        viewModel.getImage()
-    } )
-
     Column (
         modifier = Modifier.fillMaxSize()
     ) {
@@ -60,10 +58,12 @@ fun ImageDetailScreen(
                 navController.popBackStack()
             })
 
-        when(viewModel.state) {
+        val state = viewModel.state.collectAsState()
+
+        when(state.value) {
             is DataState.Success -> {
                 AsyncImage(
-                    model = (viewModel.state as DataState.Success).data.base64,
+                    model = (state.value as DataState.Success<ImageUIModel>).data.base64,
                     contentScale = ContentScale.Crop,
                     contentDescription = null,
                     modifier = Modifier

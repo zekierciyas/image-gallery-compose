@@ -7,4 +7,4 @@ An Android application demo made using JetpackCompose, Hilt, Coroutines, Flow, R
 
 ## Architecture
 
-<img src="/docs/architecture.jpeg" align="center" height="400"/>
+<img src="/docs/architecture.jpeg" align="center" height="750"/>

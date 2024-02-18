@@ -1,3 +1,10 @@
 # image-gallery-compose
 
-It is an application that lists images through a mock API created in MVVM architecture with Hilt, Compose, Retrofit, Flow, Coroutine, Flow, MaterialDesign, which implements the usage patterns of current/modern Android dynamics as best practice.
+<img src="/docs/banner.jpg" align="center" height="400"/>
+
+
+An Android application demo made using JetpackCompose, Hilt, Coroutines, Flow, Retrofit, showing photo listing and details aiming to implement best practices in MVVM architecture.
+
+## Architecture
+
+<img src="/docs/architecture.jpeg" align="center" height="400"/>

@@ -48,7 +48,7 @@ fun ImageListScreen(
         object : NestedScrollConnection {
             override fun onPreScroll(available: Offset, source: NestedScrollSource): Offset {
                 val delta = available.y
-                collapseToolBar.value = delta < 0 && !collapseToolBar.value
+                collapseToolBar.value = delta < 0 
                 return Offset.Zero
             }
         }

@@ -13,7 +13,7 @@ class GetImageByIDUseCase  @Inject constructor(private val repository: ImageRepo
     operator fun invoke(id: String?) : Flow<DataState<ImageUIModel>> = flow {
         if (id == null) return@flow
         emit(DataState.Loading)
-        delay(2000) //Mock delay to see data changes
+        delay(1000) //Mock delay to see data changes
         try {
             val result = repository.getImage(id = id).asUIModel()
             emit(DataState.Success(result))

@@ -12,7 +12,7 @@ import javax.inject.Inject
 class GetImagesUseCase @Inject constructor(private val repository: ImageRepositoryImp) {
     operator fun invoke() : Flow<DataState<List<ImageUIModel>>> = flow {
         emit(DataState.Loading)
-        delay(2000) //Mock delay to see data changes
+        delay(1000) //Mock delay to see data changes
         try {
             val result = repository.getAllImages().asUIModel()
             emit(DataState.Success(result))
